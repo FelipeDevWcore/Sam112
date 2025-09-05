@@ -492,7 +492,8 @@ const GerenciarVideos: React.FC = () => {
       const fileName = pathParts[2];
       
       const finalFileName = fileName.endsWith('.mp4') ? fileName : fileName.replace(/\.[^/.]+$/, '.mp4');
-      const domain = window.location.hostname === 'localhost' ? 'stmv1.udicast.com' : 'samhost.wcore.com.br';
+      // SEMPRE usar domínio do Wowza, NUNCA o domínio da aplicação
+      const domain = 'stmv1.udicast.com';
       
       return `https://${domain}:1443/play.php?login=${userLogin}&video=${folderName}/${finalFileName}`;
     }

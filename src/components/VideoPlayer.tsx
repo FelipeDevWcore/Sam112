@@ -141,7 +141,8 @@ const StreamingPlayerManager: React.FC<StreamingPlayerManagerProps> = ({
         const folderName = pathParts[1];
         const fileName = pathParts[2];
         const finalFileName = fileName.endsWith('.mp4') ? fileName : fileName.replace(/\.[^/.]+$/, '.mp4');
-        const domain = window.location.hostname === 'localhost' ? 'stmv1.udicast.com' : 'samhost.wcore.com.br';
+        // SEMPRE usar domínio do Wowza, NUNCA o domínio da aplicação
+        const domain = 'stmv1.udicast.com';
         playerUrl = `https://${domain}:1443/play.php?login=${userLogin}&video=${folderName}/${finalFileName}`;
       } else {
         playerUrl = `${baseUrl}/api/players/iframe?stream=${userLogin}_live`;
@@ -477,7 +478,7 @@ const StreamingPlayerManager: React.FC<StreamingPlayerManagerProps> = ({
             <div>
               <span className="font-medium text-gray-700">URLs de Streaming:</span>
               <ul className="text-gray-600 mt-1 space-y-1">
-                <li>• <strong>Player:</strong> {`https://domain:1443/play.php?login=${userLogin}&video=pasta/arquivo.mp4`}</li>
+                <li>• <strong>Player:</strong> {`https://stmv1.udicast.com:1443/play.php?login=${userLogin}&video=pasta/arquivo.mp4`}</li>
                 <li>• <strong>RTMP:</strong> {\`rtmp://samhost.wcore.com.br:1935/samhost/${userLogin}_live`}</li>
               </ul>
             </div>
@@ -489,7 +490,7 @@ const StreamingPlayerManager: React.FC<StreamingPlayerManagerProps> = ({
                 <li>• <strong>Proporção:</strong> {playerConfig.aspectRatio}</li>
                 <li>• <strong>Autoplay:</strong> {playerConfig.autoplay ? 'Sim' : 'Não'}</li>
                 <li>• <strong>Tipo:</strong> Player Externo</li>
-                <li>• <strong>Domínio:</strong> {window.location.hostname === 'localhost' ? 'stmv1.udicast.com' : 'samhost.wcore.com.br'}</li>
+                <li>• <strong>Domínio:</strong> stmv1.udicast.com</li>
               </ul>
             </div>
           </div>
