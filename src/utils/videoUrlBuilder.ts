@@ -11,7 +11,7 @@ export interface VideoUrlParts {
 }
 
 export class VideoUrlBuilder {
-  private static readonly PRODUCTION_DOMAIN = 'samhost.wcore.com.br';
+  private static readonly PRODUCTION_DOMAIN = 'stmv1.udicast.com';
   private static readonly DEV_DOMAIN = 'stmv1.udicast.com';
   private static readonly PORT = '1443';
 
@@ -71,7 +71,7 @@ export class VideoUrlBuilder {
    * Obtém o domínio baseado no ambiente
    */
   private static getDomain(): string {
-    // SEMPRE usar o domínio do servidor Wowza
+    // SEMPRE usar o domínio do servidor Wowza, NUNCA o domínio da aplicação
     return this.DEV_DOMAIN; // stmv1.udicast.com
   }
 

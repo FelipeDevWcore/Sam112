@@ -819,8 +819,8 @@ class WowzaConfigManager {
 
     // Construir URLs corretas para nova estrutura
     buildVideoUrls(userLogin, folderName, fileName, serverId = null) {
-        // SEMPRE usar o IP do servidor Wowza
-        const wowzaHost = '51.222.156.223';
+        // SEMPRE usar domínio do servidor Wowza, NUNCA o domínio da aplicação
+        const wowzaHost = 'stmv1.udicast.com';
 
         // Garantir que arquivo é MP4
         const finalFileName = fileName.endsWith('.mp4') ? fileName : fileName.replace(/\.[^/.]+$/, '.mp4');
@@ -856,8 +856,8 @@ class WowzaConfigManager {
 
     // Construir URLs de transmissão ao vivo
     buildLiveStreamUrls(userLogin, serverId = null) {
-        // SEMPRE usar o IP do servidor Wowza
-        const wowzaHost = '51.222.156.223';
+        // SEMPRE usar domínio do servidor Wowza, NUNCA o domínio da aplicação
+        const wowzaHost = 'stmv1.udicast.com';
 
         return {
             // URL RTMP para OBS (usando aplicação específica do usuário)
