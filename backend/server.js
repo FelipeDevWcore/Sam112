@@ -477,22 +477,13 @@ const dadosConexaoRoutes = require('./routes/dados-conexao');
             
             if (serverRows.length > 0) {
               const server = serverRows[0];
-              // Em produção, sempre usar domínio principal. Em dev, usar servidor específico
-              if (isProduction) {
-                wowzaHost = 'samhost.wcore.com.br';
-              } else {
-                wowzaHost = server.dominio || server.ip;
-              }
-              wowzaPassword = server.senha_root || wowzaPassword;
-              console.log(`✅ API Wowza usando servidor dinâmico: ${wowzaHost} (ID: ${serverId})`);
-            }
-          }
-        } catch (serverError) {
-          console.warn('Erro ao buscar servidor do usuário na API, usando padrão:', serverError.message);
-        }
-        
-      } catch (jwtError) {
+              // SEMPRE usar domínio do servidor Wowza, NUNCA o domínio da aplicação
+              wowzaHost = server.dominio || 'stmv1.udicast.com';
+                  } catch (jwtError) {
         return res.status(401).json({ error: 'Token inválido' });
+      }
+          }
+        }
       }
 
       // Garantir que arquivo é MP4

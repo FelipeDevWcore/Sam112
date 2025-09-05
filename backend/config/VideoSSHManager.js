@@ -949,8 +949,8 @@ class VideoSSHManager {
             const fileName = path.basename(finalPath);
             const relativePath = finalPath.replace('/usr/local/WowzaStreamingEngine/content/', '');
             
-            // SEMPRE usar o IP do servidor Wowza
-            const wowzaHost = '51.222.156.223';
+            // SEMPRE usar domínio do servidor Wowza, NUNCA o domínio da aplicação
+            const wowzaHost = 'stmv1.udicast.com';
             
             // URL direta do Wowza (porta 6980 para VOD) 
             const directUrl = `http://${wowzaHost}:6980/content/${relativePath}`;

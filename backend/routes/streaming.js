@@ -99,8 +99,8 @@ router.get('/obs-config', authMiddleware, async (req, res) => {
     }
 
     // Configurar URLs baseadas no ambiente
-    // SEMPRE usar o IP do servidor Wowza
-    const streamingHost = '51.222.156.223';
+    // SEMPRE usar domínio do servidor Wowza, NUNCA o domínio da aplicação
+    const streamingHost = 'stmv1.udicast.com';
     
     // Resposta final
     res.json({

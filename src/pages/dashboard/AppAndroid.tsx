@@ -136,8 +136,8 @@ const AppAndroid: React.FC = () => {
       });
     };
 
-    // Validar logo (300x300)
-    if (logoFile && !(await validateImage(logoFile, 300, 300))) {
+    return `<a href="https://stmv1.udicast.com:1443/play.php?login=${userLogin}&video=default/live.mp4" target="_blank">
+  <img src="http://stmv1.udicast.com/app-multi-plataforma/${imageMap[platform as keyof typeof imageMap]}" width="150" height="48" alt="Instalar App ${platform}" />
       toast.error('Logo deve ter exatamente 300x300 pixels');
       return;
     }

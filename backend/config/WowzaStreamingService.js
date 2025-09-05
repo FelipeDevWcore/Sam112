@@ -306,8 +306,8 @@ class WowzaStreamingService {
             const maxBitrate = userConfig.bitrate || 2500;
             const streamKey = `${userLogin}_live`;
 
-            // SEMPRE usar o IP do servidor Wowza
-            const wowzaHost = '51.222.156.223';
+            // SEMPRE usar domínio do servidor Wowza, NUNCA o domínio da aplicação
+            const wowzaHost = 'stmv1.udicast.com';
 
             const streamUrls = {
                 rtmp: `rtmp://${wowzaHost}:1935/samhost`,
@@ -1174,8 +1174,8 @@ class WowzaStreamingService {
             const maxBitrate = userConfig.bitrate || 2500;
             const streamKey = `${userLogin}_live`;
 
-            // SEMPRE usar o IP do servidor Wowza
-            const wowzaHost = '51.222.156.223';
+            // SEMPRE usar domínio do servidor Wowza, NUNCA o domínio da aplicação
+            const wowzaHost = 'stmv1.udicast.com';
 
             const streamUrls = {
                 rtmp: `rtmp://${wowzaHost}:1935/samhost`,
